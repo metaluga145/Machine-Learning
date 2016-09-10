@@ -22,8 +22,17 @@ idx = zeros(size(X,1), 1);
 %
 
 
-
-
+for i = 1:size(X,1)
+    mindst = sum((X(i, :) - centroids(1, :)).^2);
+    idx(i) = 1;
+    for j = 2:K
+        tmp = sum((X(i, :) - centroids(j, :)).^2);
+        if(mindst > tmp)
+            mindst = tmp;
+            idx(i) = j;
+        end
+    end
+end
 
 
 

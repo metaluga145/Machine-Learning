@@ -21,7 +21,14 @@ S = zeros(n);
 %
 
 
-
+Sigma = 0;
+for i = 1:m
+    tmp = X(i, :);
+    tmp = X(i, :)' * X(i, :);
+    Sigma = Sigma + X(i, :)'*X(i, :);
+end
+Sigma = Sigma / m;
+[U, S, V] = svd(Sigma);
 
 
 
